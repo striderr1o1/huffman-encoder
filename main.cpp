@@ -18,6 +18,4 @@ map<char, int> GetFrequency(string str){
     
     return mp;
 }
-//1. frequency
-//2. check number of unique characters
-//3. 
+
