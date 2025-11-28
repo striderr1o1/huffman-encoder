@@ -1,5 +1,6 @@
 #include <iostream>
 #include <bits/stdc++.h>
+#include <fstream>
 using namespace std;
 map<char, int> GetFrequency(string str);
 int main(){
@@ -17,6 +18,22 @@ map<char, int> GetFrequency(string str){
     }
     
     return mp;
+}
+
+string ExtractStringFromFile(string fileName){
+    fstream fileObject;
+    fileObject.open(fileName, ios::in);
+    string s;
+    if(fileObject.is_open()){
+        //read file
+        //save in string
+        //return string
+        
+    }
+    else{
+        return s;
+    }
+    return s;
 }
 //1. frequency calculation
 //2. unique characters numbers
