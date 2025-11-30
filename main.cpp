@@ -2,39 +2,34 @@
 #include <bits/stdc++.h>
 #include <fstream>
 using namespace std;
-map<char, int> GetFrequency(string str);
 int main(){
-string s = "aaabbcddd";
-map<char, int> mp = GetFrequency(s);
- for(auto &p : mp){
-         cout << p.first << " " << p.second << endl;
-    }
+
 }
 
-map<char, int> GetFrequency(string str){
-    map<char, int> mp;
-    for(int i = 0; i < str.length(); i++){
-            mp[str[i]] = mp[str[i]] + 1;
-    }
+// map<char, int> GetFrequency(string str){
+//     map<char, int> mp;
+//     for(int i = 0; i < str.length(); i++){
+//             mp[str[i]] = mp[str[i]] + 1;
+//     }
     
-    return mp;
-}
+//     return mp;
+// }
 
-string ExtractStringFromFile(string fileName){
-    fstream fileObject;
-    fileObject.open(fileName, ios::in);
-    string s;
-    if(fileObject.is_open()){
-        //read file
-        //save in string
-        //return string
+// string ExtractStringFromFile(string fileName){
+//     fstream fileObject;
+//     fileObject.open(fileName, ios::in);
+//     string s;
+//     if(fileObject.is_open()){
+//         //read file
+//         //save in string
+//         //return string
         
-    }
-    else{
-        return s;
-    }
-    return s;
-}
+//     }
+//     else{
+//         return s;
+//     }
+//     return s;
+// }
 //1. frequency calculation
 //2. unique characters numbers
 //3. choose numbers of bits
