@@ -2,6 +2,7 @@
 #define HUFFMANENCODER_H
 #include <iostream>
 #include <bits/stdc++.h>
+#include "binary_tree.h"
 using namespace std;
 
 class HuffmanEncoder{
@@ -13,11 +14,16 @@ class HuffmanEncoder{
     //frequency calculator
     //extract string from file
     //binary tree function
-    map<char, int> GetFrequency(string str);
+    BinaryTree* BTlist;
+    char* CharacterList;
+    void GetFrequency(string str);
     public:
+    HuffmanEncoder();
     //encode
     //decode
     //
 
 };
 #endif HUFFMANENCODER_H
+//1. extract string from file
+//2. 
