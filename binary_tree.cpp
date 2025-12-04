@@ -4,11 +4,11 @@ BinaryTree::BinaryTree(){
     root = nullptr;
 }
 
-void BinaryTree::CreateNode(char c, int v){
+void BinaryTree::CreateNode(char c, int f){
     if(root == nullptr){
         TreeNode* newNode = new TreeNode;
         newNode->character = c;
-        newNode->value = v;
+        newNode->frequency = f;
         newNode->left = nullptr;
         newNode->right = nullptr;
         root = newNode;

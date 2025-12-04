@@ -7,7 +7,7 @@ using namespace std;
 struct TreeNode
 {
     /* data */
-    int value;
+    int frequency;
     char character;
     TreeNode* left;
     TreeNode* right;
@@ -19,7 +19,7 @@ class BinaryTree{
     TreeNode* root;
     public:
     BinaryTree();
-    void CreateNode(char character, int value);
+    void CreateNode(char character, int frequency);
 };
 
 #endif BINARY_TREE.H

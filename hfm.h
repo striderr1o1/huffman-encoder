@@ -16,7 +16,7 @@ class HuffmanEncoder{
     //binary tree function
     BinaryTree* BTlist;
     char* CharacterList;
-    void GetFrequency(string str);
+    void CreateLists(string str);
     public:
     HuffmanEncoder();
     //encode

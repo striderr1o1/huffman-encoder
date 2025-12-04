@@ -5,7 +5,7 @@ HuffmanEncoder::HuffmanEncoder(){
     BTlist = nullptr;
 }
 
-void HuffmanEncoder::GetFrequency(string str){
+void HuffmanEncoder::CreateLists(string str){
     map<char, int> mp;//declaring map
     for(int i = 0; i < str.length(); i++){
             mp[str[i]] = mp[str[i]] + 1;//looping over the map to generate frequency against the string
