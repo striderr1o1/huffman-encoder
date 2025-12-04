@@ -17,6 +17,7 @@ class HuffmanEncoder{
     BinaryTree* BTlist;
     char* CharacterList;
     void CreateLists(string str);
+    void MergeBinaryTrees();
     public:
     HuffmanEncoder();
     //encode

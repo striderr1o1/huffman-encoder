@@ -16,3 +16,4 @@ void BinaryTree::CreateNode(char c, int f){
     }
     //
 }
+

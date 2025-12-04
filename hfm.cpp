@@ -21,3 +21,6 @@ void HuffmanEncoder::CreateLists(string str){
         i++;//increment i
     }
 }
+void HuffmanEncoder::MergeBinaryTrees(){
+    int size = sizeof(BTlist)/sizeof(BTlist[0]);
+}
