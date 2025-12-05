@@ -1,9 +1,11 @@
 #include <iostream>
 #include <bits/stdc++.h>
 #include <fstream>
+#include "hfm.h"
 using namespace std;
 int main(){
-
+HuffmanEncoder hf;
+hf.encode();
 }
 
 

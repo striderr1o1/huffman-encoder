@@ -21,10 +21,11 @@ class HuffmanEncoder{
     public:
     HuffmanEncoder();
     //encode
+    void encode();
     //decode
     //
 
 };
-#endif HUFFMANENCODER_H
+#endif
 //1. extract string from file
 //2. 

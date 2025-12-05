@@ -17,3 +17,10 @@ void BinaryTree::CreateNode(char c, int f){
     //
 }
 
+int BinaryTree::returnFrequency(){
+    if(root!=nullptr){
+        return root->frequency;
+    }
+    else return 0;
+}
+

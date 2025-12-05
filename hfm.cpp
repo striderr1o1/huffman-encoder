@@ -18,9 +18,15 @@ void HuffmanEncoder::CreateLists(string str){
     for(it = mp.begin(); it!=mp.end(); it++){// will run while map doesnt end
         CharacterList[i] = it->first;
         BTlist[i].CreateNode(it->first, it->second);//create node for each BTlist binary tree
+        // cout << BTlist[i].returnFrequency() << endl;
         i++;//increment i
     }
 }
 void HuffmanEncoder::MergeBinaryTrees(){
     int size = sizeof(BTlist)/sizeof(BTlist[0]);
+    
+}
+
+void HuffmanEncoder::encode(){
+    CreateLists("I am Ranger boy");
 }

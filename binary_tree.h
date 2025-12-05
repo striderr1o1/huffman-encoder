@@ -1,5 +1,5 @@
-#ifndef BINARY_TREE.H
-#define BINARY_TREE.H
+#ifndef BINARY_TREE_H
+#define BINARY_TREE_H
 
 #include <iostream>
 using namespace std;
@@ -20,6 +20,7 @@ class BinaryTree{
     public:
     BinaryTree();
     void CreateNode(char character, int frequency);
+    int returnFrequency();
 };
 
-#endif BINARY_TREE.H
+#endif
