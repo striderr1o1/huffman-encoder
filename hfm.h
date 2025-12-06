@@ -7,23 +7,17 @@ using namespace std;
 
 class HuffmanEncoder{
     private:
-    //binary tree list
-    //file text
-    //unique character list
-    //encoded text
-    //frequency calculator
-    //extract string from file
-    //binary tree function
-    BinaryTree* BTlist;
+    vector<BinaryTree> BTlist;
     char* CharacterList;
     void CreateLists(string str);
     void MergeBinaryTrees();
+    BinaryTree* GetMinimumTree();
     public:
     HuffmanEncoder();
-    //encode
+    
     void encode();
     //decode
-    //
+    
 
 };
 #endif

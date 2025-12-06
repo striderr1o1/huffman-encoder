@@ -2,6 +2,7 @@
 
 BinaryTree::BinaryTree(){
     root = nullptr;
+    
 }
 
 void BinaryTree::CreateNode(char c, int f){
@@ -24,3 +25,25 @@ int BinaryTree::returnFrequency(){
     else return 0;
 }
 
+void BinaryTree::AddTreeNode(TreeNode* node){
+    //to be continued
+    AddTreeNodeII(node, root);
+}
+//error coming over here
+void BinaryTree::AddTreeNodeII(TreeNode* node, TreeNode* CurrentNode){
+    // cout << node->frequency << endl;
+    if(CurrentNode==nullptr){
+        CurrentNode = node;
+        return;
+    }
+    if(node->frequency < CurrentNode->frequency){
+        AddTreeNodeII(node, CurrentNode->left);
+    }
+    if(node->frequency >= CurrentNode->frequency){
+        AddTreeNodeII(node, CurrentNode->right);
+    }
+}
+
+TreeNode* BinaryTree::GetRoot(){
+    return root;
+}

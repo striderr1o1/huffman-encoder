@@ -17,10 +17,13 @@ struct TreeNode
 class BinaryTree{
     private:
     TreeNode* root;
+    void AddTreeNodeII(TreeNode* node, TreeNode* startingNode);
     public:
     BinaryTree();
     void CreateNode(char character, int frequency);
     int returnFrequency();
+    void AddTreeNode(TreeNode* node);
+    TreeNode* GetRoot();
 };
 
 #endif
