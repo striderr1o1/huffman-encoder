@@ -11,7 +11,8 @@ class HuffmanEncoder{
     char* CharacterList;
     void CreateLists(string str);
     void MergeBinaryTrees();
-    BinaryTree* GetMinimumTree();
+    BinaryTree GetMinimumTree();
+
     public:
     HuffmanEncoder();
     

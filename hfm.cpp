@@ -21,15 +21,15 @@ void HuffmanEncoder::CreateLists(string str){
     for(it = mp.begin(); it!=mp.end(); it++){// will run while map doesnt end
         CharacterList[i] = it->first;
         BinaryTree newTree;
+        
         newTree.CreateNode(it->first, it->second);
         BTlist.push_back(newTree);
-        // cout << BTlist[i].returnFrequency() << endl;
         //create node for each BTlist binary tree
         i++;//increment i
     }
 }
 
-BinaryTree* HuffmanEncoder::GetMinimumTree(){
+BinaryTree HuffmanEncoder::GetMinimumTree(){
     int min = BTlist[0].returnFrequency();
     int index = 0;
 
@@ -44,9 +44,10 @@ BinaryTree* HuffmanEncoder::GetMinimumTree(){
     }
 
     vector<BinaryTree>::iterator it = BTlist.begin();
-    BinaryTree* returningTree = &BTlist[index];
-    cout << "Removing " << returningTree->returnFrequency() << " " << endl;
+    BinaryTree returningTree = BTlist[index];
+    cout << "Removing " << returningTree.returnFrequency() << " " << endl;
     BTlist.erase(it + index);
+    
     return returningTree;
 }
 
@@ -56,18 +57,18 @@ void HuffmanEncoder::MergeBinaryTrees(){
             cout << BTlist[i].returnFrequency() << " ";
         }
     while(size!=1){
-        BinaryTree* MinTree1 = GetMinimumTree();
-        BinaryTree* MinTree2 = GetMinimumTree();
+        BinaryTree MinTree1 = GetMinimumTree();
+        BinaryTree MinTree2 = GetMinimumTree();
         BinaryTree newTree;
-        int Tree1Freq = MinTree1->returnFrequency();
-        int Tree2Freq = MinTree2->returnFrequency();
+        int Tree1Freq = MinTree1.returnFrequency();
+        int Tree2Freq = MinTree2.returnFrequency();
         int addedFreq = Tree1Freq + Tree2Freq;
         newTree.CreateNode('-', addedFreq);
         //add trees to new tree as nodes
         
-        newTree.AddTreeNode(MinTree1->GetRoot());
+        newTree.AddTreeNode(MinTree1.GetRoot());
         
-        newTree.AddTreeNode(MinTree2->GetRoot());
+        newTree.AddTreeNode(MinTree2.GetRoot());
         //this is giving 10 when it should be 1+1 = 2
         cout << " adding " << newTree.returnFrequency() << endl;
         BTlist.push_back(newTree);
@@ -76,6 +77,7 @@ void HuffmanEncoder::MergeBinaryTrees(){
         }
         size = BTlist.size();
     }
+    cout << endl;
     cout << BTlist[0].returnFrequency() << endl;
     
 }
