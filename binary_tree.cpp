@@ -47,3 +47,17 @@ void BinaryTree::AddTreeNodeII(TreeNode* node, TreeNode* CurrentNode){
 TreeNode* BinaryTree::GetRoot(){
     return root;
 }
+
+string BinaryTree::Traversal(TreeNode* node, string s){
+    if(node==nullptr){
+        return s;
+    }
+    //
+
+}
+
+string BinaryTree::GetCodeByTraversal(){
+    string s = "";
+    string str = Traversal(root, s);
+    return str;
+}

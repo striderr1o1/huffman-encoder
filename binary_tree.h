@@ -18,12 +18,14 @@ class BinaryTree{
     private:
     TreeNode* root;
     void AddTreeNodeII(TreeNode* node, TreeNode* startingNode);
+    string Traversal(TreeNode* root, string s);
     public:
     BinaryTree();
     void CreateNode(char character, int frequency);
     int returnFrequency();
     void AddTreeNode(TreeNode* node);
     TreeNode* GetRoot();
+    string GetCodeByTraversal();
 };
 
 #endif
