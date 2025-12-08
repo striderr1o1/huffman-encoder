@@ -53,6 +53,7 @@ string BinaryTree::Traversal(TreeNode* node, string s){
         return s;
     }
     //
+    return s;
 
 }
 

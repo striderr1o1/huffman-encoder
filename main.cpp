@@ -2,11 +2,15 @@
 #include <bits/stdc++.h>
 #include <fstream>
 #include "hfm.h"
+#include <fstream>
 using namespace std;
 int main(){
 HuffmanEncoder hf;
 hf.encode();
+     
 }
+
+
 
 
 //1. frequency calculation
