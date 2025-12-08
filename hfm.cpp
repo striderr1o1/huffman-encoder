@@ -14,11 +14,11 @@ void HuffmanEncoder::CreateLists(string str){
     
     CharacterList = new char[size];
 
-    map<char, int>::iterator it = mp.begin();//assigning an iterator to the beginning of the map
+    // map<char, int>::iterator it = mp.begin();//assigning an iterator to the beginning of the map
 
     int i = 0;//loop i counter
 
-    for(it = mp.begin(); it!=mp.end(); it++){// will run while map doesnt end
+    for(auto it = mp.begin(); it!=mp.end(); it++){// will run while map doesnt end
         CharacterList[i] = it->first;
         BinaryTree newTree;
         
@@ -27,6 +27,21 @@ void HuffmanEncoder::CreateLists(string str){
         //create node for each BTlist binary tree
         i++;//increment i
     }
+    SortList();
+}
+
+void HuffmanEncoder::SortList(){
+    BinaryTree temp;
+    for(int i = 0; i < BTlist.size(); i++){
+        for(int j = 0; j < BTlist.size()-1; j++){
+            if(BTlist[j].returnFrequency() > BTlist[j+1].returnFrequency()){
+                temp = BTlist[j];
+                BTlist[j] = BTlist[j+1];
+                BTlist[j+1] = temp;
+            }
+        }
+    }
+    
 }
 
 BinaryTree HuffmanEncoder::GetMinimumTree(){
@@ -45,6 +60,7 @@ BinaryTree HuffmanEncoder::GetMinimumTree(){
 
     vector<BinaryTree>::iterator it = BTlist.begin();
     BinaryTree returningTree = BTlist[index];
+    
     cout << "Removing " << returningTree.returnFrequency() << " " << endl;
     BTlist.erase(it + index);
     
@@ -65,13 +81,24 @@ void HuffmanEncoder::MergeBinaryTrees(){
         int addedFreq = Tree1Freq + Tree2Freq;
         newTree.CreateNode('-', addedFreq);
         //add trees to new tree as nodes
+        // BinaryTree* pt1 = &MinTree1;
+        // BinaryTree* pt2 = &MinTree2;
+        // newTree.AddTreeNode(MinTree1.GetRoot());
         
-        newTree.AddTreeNode(MinTree1.GetRoot());
-        
-        newTree.AddTreeNode(MinTree2.GetRoot());
+        // newTree.AddTreeNode(MinTree2.GetRoot());
+        if(Tree1Freq < newTree.GetRoot()->frequency){
+            newTree.GetRoot()->right = MinTree1.GetRoot();
+            newTree.GetRoot()->left = MinTree2.GetRoot();
+        }
+        else{
+            newTree.GetRoot()->right = MinTree2.GetRoot();
+            newTree.GetRoot()->left = MinTree1.GetRoot();
+        }
         //this is giving 10 when it should be 1+1 = 2
         cout << " adding " << newTree.returnFrequency() << endl;
+        newTree.PrintTree();
         BTlist.push_back(newTree);
+
         for(int i = 0; i < BTlist.size(); i++){
             cout << BTlist[i].returnFrequency() << " ";
         }
@@ -83,7 +110,7 @@ void HuffmanEncoder::MergeBinaryTrees(){
 }
 
 void HuffmanEncoder::encode(){
-    CreateLists("aaaa bbb cc dddd e f ggggg h");
+    CreateLists("aaaabbcddd");
     MergeBinaryTrees();
 }
 

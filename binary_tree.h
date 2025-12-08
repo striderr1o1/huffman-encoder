@@ -19,6 +19,7 @@ class BinaryTree{
     TreeNode* root;
     void AddTreeNodeII(TreeNode* node, TreeNode* startingNode);
     string Traversal(TreeNode* root, string s);
+    void PrintTreeHelper(TreeNode* node, string prefix, bool isLeft);
     public:
     BinaryTree();
     void CreateNode(char character, int frequency);
@@ -26,6 +27,7 @@ class BinaryTree{
     void AddTreeNode(TreeNode* node);
     TreeNode* GetRoot();
     string GetCodeByTraversal();
+    void PrintTree();
 };
 
 #endif

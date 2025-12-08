@@ -12,6 +12,7 @@ class HuffmanEncoder{
     void CreateLists(string str);
     void MergeBinaryTrees();
     BinaryTree GetMinimumTree();
+    void SortList();
 
     public:
     HuffmanEncoder();
