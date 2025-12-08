@@ -7,7 +7,6 @@ using namespace std;
 
 struct TreeNode
 {
-    /* data */
     int frequency;
     char character;
     TreeNode* left;
@@ -22,7 +21,7 @@ class BinaryTree{
     void AddTreeNodeII(TreeNode* node, TreeNode* startingNode);
     string Traversal(TreeNode* root, string s);
     map<char, string> Traversal(TreeNode* &root, map<char, string> mp, string s);
-    void PrintTreeHelper(TreeNode* node, string prefix, bool isLeft);
+    
 
     public:
 
@@ -33,7 +32,7 @@ class BinaryTree{
     TreeNode* GetRoot();
     map<char, string> GetCodeByTraversal();
     
-    void PrintTree();
+    
 };
 
 #endif

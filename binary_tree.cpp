@@ -59,44 +59,7 @@ string BinaryTree::Traversal(TreeNode* node, string s){
 
 
 
-void BinaryTree::PrintTreeHelper(TreeNode* node, string prefix, bool isLeft){
-    if(node == nullptr){
-        return;
-    }
-    
-    cout << prefix;
-    cout << (isLeft ? "├──" : "└──");
-    cout << node->character << "(" << node->frequency << ")" << endl;
-    
-    if(node->left != nullptr || node->right != nullptr){
-        if(node->left != nullptr){
-            PrintTreeHelper(node->left, prefix + (isLeft ? "│   " : "    "), true);
-        } else {
-            cout << prefix + (isLeft ? "│   " : "    ") << "├──(empty)" << endl;
-        }
-        
-        if(node->right != nullptr){
-            PrintTreeHelper(node->right, prefix + (isLeft ? "│   " : "    "), false);
-        } else {
-            cout << prefix + (isLeft ? "│   " : "    ") << "└──(empty)" << endl;
-        }
-    }
-}
 
-void BinaryTree::PrintTree(){
-    if(root == nullptr){
-        cout << "Tree is empty" << endl;
-        return;
-    }
-    cout << "Binary Tree Structure:" << endl;
-    cout << root->character << "(" << root->frequency << ")" << endl;
-    if(root->left != nullptr){
-        PrintTreeHelper(root->left, "", true);
-    }
-    if(root->right != nullptr){
-        PrintTreeHelper(root->right, "", false);
-    }
-}
 
 map<char, string> BinaryTree::Traversal(TreeNode* &node, map<char, string> mp, string s){
     if(node == nullptr){

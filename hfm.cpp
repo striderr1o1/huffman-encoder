@@ -87,30 +87,25 @@ void HuffmanEncoder::MergeBinaryTrees(){
             cout << BTlist[i].returnFrequency() << " ";
         }
     while(size!=1){
-        BinaryTree MinTree1 = GetMinimumTree();
-        BinaryTree MinTree2 = GetMinimumTree();
-        BinaryTree newTree;
-        int Tree1Freq = MinTree1.returnFrequency();
-        int Tree2Freq = MinTree2.returnFrequency();
-        int addedFreq = Tree1Freq + Tree2Freq;
-        newTree.CreateNode('-', addedFreq);
-        //add trees to new tree as nodes
-        // BinaryTree* pt1 = &MinTree1;
-        // BinaryTree* pt2 = &MinTree2;
-        // newTree.AddTreeNode(MinTree1.GetRoot());
-        
-        // newTree.AddTreeNode(MinTree2.GetRoot());
-        if(Tree1Freq < newTree.GetRoot()->frequency){
+        BinaryTree MinTree1 = GetMinimumTree();//get minimum tree
+        BinaryTree MinTree2 = GetMinimumTree();//get minimum tree
+        BinaryTree newTree;//create new tree
+        int Tree1Freq = MinTree1.returnFrequency();//get frequency of miminum tree 1
+        int Tree2Freq = MinTree2.returnFrequency();//get frequency of minimum tree 2
+        int addedFreq = Tree1Freq + Tree2Freq;//add both frequencies of both extracted trees
+        newTree.CreateNode('-', addedFreq);//create a new node and push the added frequency (will make root node)
+       
+        if(Tree1Freq < newTree.GetRoot()->frequency){//if first extracted trees's freq is less than new trees added frequency, push it as left child of new tree and the other tree as right child 
             newTree.GetRoot()->right = MinTree1.GetRoot();
             newTree.GetRoot()->left = MinTree2.GetRoot();
         }
-        else{
+        else{//otherwise the opposite
             newTree.GetRoot()->right = MinTree2.GetRoot();
             newTree.GetRoot()->left = MinTree1.GetRoot();
         }
-        //this is giving 10 when it should be 1+1 = 2
+        
         cout << " adding " << newTree.returnFrequency() << endl;
-        newTree.PrintTree();
+        
         BTlist.push_back(newTree);
 
         for(int i = 0; i < BTlist.size(); i++){
