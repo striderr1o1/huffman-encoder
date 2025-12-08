@@ -9,15 +9,16 @@ class HuffmanEncoder{
     private:
     vector<BinaryTree> BTlist;
     char* CharacterList;
+    string Text;
     void CreateLists(string str);
     void MergeBinaryTrees();
     BinaryTree GetMinimumTree();
     void SortList();
-
+    void readFile(const string &filename);
     public:
     HuffmanEncoder();
     
-    void encode();
+    void encode(string filename);
     //decode
     
 

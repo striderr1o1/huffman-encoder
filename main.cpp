@@ -6,7 +6,7 @@
 using namespace std;
 int main(){
 HuffmanEncoder hf;
-hf.encode();
+hf.encode("test.txt");
      
 }
 
