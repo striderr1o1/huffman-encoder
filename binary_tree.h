@@ -13,13 +13,17 @@ struct TreeNode
     TreeNode* right;
 };
 
+//binary tree class used in Huffman encoder class
+// functions under private are those that are not given to user, but are used inside their wrappers
+//CreateNode function for creating node (adds node as root element basically)
+//return frequency (returns frequency of the root node/element)
+// get code by traversal (generates code using recursion till reaches characters at the bottom of tree)
 
 class BinaryTree{
     private:
 
     TreeNode* root;
-    void AddTreeNodeII(TreeNode* node, TreeNode* startingNode);
-    string Traversal(TreeNode* root, string s);
+    
     map<char, string> Traversal(TreeNode* &root, map<char, string> mp, string s);
     
 
@@ -28,7 +32,6 @@ class BinaryTree{
     BinaryTree();
     void CreateNode(char character, int frequency);
     int returnFrequency();
-    void AddTreeNode(TreeNode* node);
     TreeNode* GetRoot();
     map<char, string> GetCodeByTraversal();
     

@@ -105,9 +105,9 @@ void HuffmanEncoder::MergeBinaryTrees(){
         }
         
         cout << " adding " << newTree.returnFrequency() << endl;
-        
+        //push the new tree in the binary trees list
         BTlist.push_back(newTree);
-
+        //print the binary trees
         for(int i = 0; i < BTlist.size(); i++){
             cout << BTlist[i].returnFrequency() << " ";
         }
@@ -118,7 +118,7 @@ void HuffmanEncoder::MergeBinaryTrees(){
     
 }
 
-void HuffmanEncoder::encode(string filename){
+void HuffmanEncoder::encode(string filename){//main function wrapper over other function which user can access
     readFile(filename);
     CreateLists(Text);
     MergeBinaryTrees();

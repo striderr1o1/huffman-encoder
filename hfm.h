@@ -5,6 +5,15 @@
 #include "binary_tree.h"
 using namespace std;
 
+//private:
+// binary trees list, characters list (didnt use this tho)
+// string text (extracted into this variable from file)
+// createLists function for creating binary trees list, calculating frequency of characters
+// merge binary trees function to keep on merging trees till only one tree is left
+//GetminimumTree function (used in merge binary tree function)
+//sortlist(function written for sorting binary trees list)
+//readFile (file reading function, stores text as string in Text data variable)
+
 class HuffmanEncoder{
     private:
     vector<BinaryTree> BTlist;
