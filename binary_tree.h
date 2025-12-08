@@ -2,6 +2,7 @@
 #define BINARY_TREE_H
 
 #include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 struct TreeNode
@@ -16,17 +17,22 @@ struct TreeNode
 
 class BinaryTree{
     private:
+
     TreeNode* root;
     void AddTreeNodeII(TreeNode* node, TreeNode* startingNode);
     string Traversal(TreeNode* root, string s);
+    map<char, string> Traversal(TreeNode* &root, map<char, string> mp, string s);
     void PrintTreeHelper(TreeNode* node, string prefix, bool isLeft);
+
     public:
+
     BinaryTree();
     void CreateNode(char character, int frequency);
     int returnFrequency();
     void AddTreeNode(TreeNode* node);
     TreeNode* GetRoot();
-    string GetCodeByTraversal();
+    map<char, string> GetCodeByTraversal();
+    
     void PrintTree();
 };
 

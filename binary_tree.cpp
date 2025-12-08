@@ -57,11 +57,7 @@ string BinaryTree::Traversal(TreeNode* node, string s){
 
 }
 
-string BinaryTree::GetCodeByTraversal(){
-    string s = "";
-    string str = Traversal(root, s);
-    return str;
-}
+
 
 void BinaryTree::PrintTreeHelper(TreeNode* node, string prefix, bool isLeft){
     if(node == nullptr){
@@ -100,4 +96,29 @@ void BinaryTree::PrintTree(){
     if(root->right != nullptr){
         PrintTreeHelper(root->right, "", false);
     }
+}
+
+map<char, string> BinaryTree::Traversal(TreeNode* &node, map<char, string> mp, string s){
+    if(node == nullptr){
+        return mp;
+    }
+    // cout << node->frequency << endl;
+    if(node->character != '-'){
+        mp.insert({node->character, s});
+        return mp;
+    }
+    //
+    
+    
+    map<char, string> m1 = Traversal(node->left, mp, s+"0");
+    map<char, string> m2 = Traversal(node->right, m1, s+"1");
+    return m2;
+
+}
+
+map<char, string> BinaryTree::GetCodeByTraversal(){
+    map<char, string> mp;
+    string s = "";
+    map<char, string> mpReturned = Traversal(root, mp, s);
+    return mpReturned;
 }
