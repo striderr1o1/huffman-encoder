@@ -21,12 +21,14 @@ class HuffmanEncoder{
     char* CharacterList;
     map<char, string> BinaryCodes;
     string Text;
+    string BitStream;
+
     void CreateLists(string str);
     void MergeBinaryTrees();
     BinaryTree GetMinimumTree();
     void SortList();
     void readFile(const string &filename);
-    void ConvertBitsToBytes();
+    void WriteAsBitStream();
     void WriteBytesToFile();
 
     public:

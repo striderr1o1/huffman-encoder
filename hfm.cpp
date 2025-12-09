@@ -4,6 +4,7 @@ HuffmanEncoder::HuffmanEncoder(){
     CharacterList = nullptr;
     BTlist = {};
     Text = "";
+    BitStream = "";
 }
 
 void HuffmanEncoder::readFile(const string &filename){
@@ -117,17 +118,12 @@ void HuffmanEncoder::MergeBinaryTrees(){
     cout << BTlist[0].returnFrequency() << endl;
     
 }
-void HuffmanEncoder::ConvertBitsToBytes(){
-    for(auto it = BinaryCodes.begin(); it!=BinaryCodes.end(); it++){
-        string bits = it->second;
-        
-        while(it->second.size()%8!=0){
-            for(int i = bits.size()-1; i < bits.size();i++){
-                it->second = "0" + it->second;
-            }
-        }
-        cout << it->first << " " << it->second << endl;
+void HuffmanEncoder::WriteAsBitStream(){
+    for(int i = 0; i < Text.length(); i++){
+        BitStream+=BinaryCodes[Text[i]];
+        cout << Text[i];
     }
+    cout << BitStream << endl;
 }
 
 void HuffmanEncoder::WriteBytesToFile(){
@@ -140,7 +136,7 @@ void HuffmanEncoder::encode(string filename){//main function wrapper over other 
     MergeBinaryTrees();
     map<char, string> mp;
     BinaryCodes = BTlist[0].GetCodeByTraversal();
-    ConvertBitsToBytes();
+    WriteAsBitStream();
 
 }
 
