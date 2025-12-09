@@ -121,13 +121,30 @@ void HuffmanEncoder::MergeBinaryTrees(){
 void HuffmanEncoder::WriteAsBitStream(){
     for(int i = 0; i < Text.length(); i++){
         BitStream+=BinaryCodes[Text[i]];
-        cout << Text[i];
+        // cout << Text[i];
     }
-    cout << BitStream << endl;
+    // cout << BitStream << endl;
 }
 
 void HuffmanEncoder::WriteBytesToFile(){
-    
+    fstream fileObj;
+    fileObj.open("bf.bin", ios::binary | ios::out);
+    if(fileObj.is_open()){
+        char* c = new char[8];
+        int j = 0;
+        for(int i = 0; i < BitStream.length(); i++){
+            if(i % 8 == 0 && i != 0){
+                
+                // u_int8_t i = reinterpret_cast<u_int8_t>(c);
+                fileObj.write(c, 1);
+                delete c;
+                char* c = new char[8];
+                j = -1;
+            }
+            j++;
+            c[j] = BitStream[i];
+        }
+    }
 }
 
 void HuffmanEncoder::encode(string filename){//main function wrapper over other function which user can access
@@ -137,6 +154,7 @@ void HuffmanEncoder::encode(string filename){//main function wrapper over other 
     map<char, string> mp;
     BinaryCodes = BTlist[0].GetCodeByTraversal();
     WriteAsBitStream();
+    WriteBytesToFile();
 
 }
 
