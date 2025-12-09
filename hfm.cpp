@@ -117,17 +117,31 @@ void HuffmanEncoder::MergeBinaryTrees(){
     cout << BTlist[0].returnFrequency() << endl;
     
 }
+void HuffmanEncoder::ConvertBitsToBytes(){
+    for(auto it = BinaryCodes.begin(); it!=BinaryCodes.end(); it++){
+        string bits = it->second;
+        
+        while(it->second.size()%8!=0){
+            for(int i = bits.size()-1; i < bits.size();i++){
+                it->second = "0" + it->second;
+            }
+        }
+        cout << it->first << " " << it->second << endl;
+    }
+}
+
+void HuffmanEncoder::WriteBytesToFile(){
+    
+}
 
 void HuffmanEncoder::encode(string filename){//main function wrapper over other function which user can access
     readFile(filename);
     CreateLists(Text);
     MergeBinaryTrees();
     map<char, string> mp;
-    mp = BTlist[0].GetCodeByTraversal();
+    BinaryCodes = BTlist[0].GetCodeByTraversal();
+    ConvertBitsToBytes();
 
-    for(auto it = mp.begin(); it!=mp.end(); it++){
-        cout << it->first << " " << it->second << endl;
-    }
 }
 
 //1. use vectors

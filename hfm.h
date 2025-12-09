@@ -3,6 +3,7 @@
 #include <iostream>
 #include <bits/stdc++.h>
 #include "binary_tree.h"
+#include <fstream>
 using namespace std;
 
 //private:
@@ -18,15 +19,18 @@ class HuffmanEncoder{
     private:
     vector<BinaryTree> BTlist;
     char* CharacterList;
+    map<char, string> BinaryCodes;
     string Text;
     void CreateLists(string str);
     void MergeBinaryTrees();
     BinaryTree GetMinimumTree();
     void SortList();
     void readFile(const string &filename);
+    void ConvertBitsToBytes();
+    void WriteBytesToFile();
+
     public:
     HuffmanEncoder();
-    
     void encode(string filename);
     //decode
     
