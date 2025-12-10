@@ -53,7 +53,7 @@ This class contains the following private data members and functions:
 - **BinaryTree GetMinimumTree()**: returns the minimum tree in the list
 - **void SortList()**: sorts the "BTlist" by frequencies.
 - **void WriteAsBitStream()**: writes one long bitstream by placing each character's bit code instead of the character itself. Stores this bitstream in the "BitStream" data member.
-- **void WriteBytesToFile()**: tries writing the bit stream to a .bin file by opening the file object in ios::binary and ios::out. But this implementation is not correct.
+- **void WriteBytesToFile()**: tries writing the bit stream to a .bin file by opening the file object in ios::binary and ios::out. But this implementation is not correct and is under development.
 
 *Public functions* are the following:
 
