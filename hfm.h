@@ -35,8 +35,8 @@ class HuffmanEncoder{
     
     public:
     HuffmanEncoder();
-    void encode(string filename);
-    void decode();
+    string encode(string filename);
+    string decode();
     long long getFileSize(const string &filename);
     //decode
     

@@ -159,7 +159,7 @@ long long HuffmanEncoder::getFileSize(const string &filename){
     return file.tellg();// returns the position of the pointer in bytes ios :: ate took the pointer to the end of the file and  tellg tell the position in bytes
 }
 
-void HuffmanEncoder::encode(string filename){//main function wrapper over other function which user can access
+string HuffmanEncoder::encode(string filename){//main function wrapper over other function which user can access
     readFile(filename);
     CreateLists(Text);
     MergeBinaryTrees();
@@ -167,15 +167,17 @@ void HuffmanEncoder::encode(string filename){//main function wrapper over other 
     BinaryCodes = BTlist[0].GetCodeByTraversal();
     WriteAsBitStream();
     WriteBytesToFile();
+    return BitStream;
 
 }
 //################################DECODE###############################
 
 
 
-void HuffmanEncoder::decode(){
+string HuffmanEncoder::decode(){
     DecodedText = BTlist[0].GetStringDecoded(BitStream);
     cout << DecodedText << endl;
+    return DecodedText;
 }
 
 //1101101110

@@ -3,11 +3,22 @@
 #include <fstream>
 #include "hfm.h"
 #include <fstream>
+#include "crow_all.h"
 using namespace std;
 int main(){
-HuffmanEncoder hf;
-hf.encode("test.txt");
-hf.decode();
+    // hf.decode();
+    crow::SimpleApp App;
+    CROW_ROUTE(App, "/sendFile/<string>")
+    ([](string filename){
+    crow::response res;
+    HuffmanEncoder hf;
+    string encodedStream = hf.encode(filename);
+    cout << encodedStream;
+    string s = hf.decode();
+    
+    return "Encoded bits: \n" + encodedStream + "\n\n" + "Decoded text: \n" + s;
+});
+App.port(18080).run();
 }
 
 
