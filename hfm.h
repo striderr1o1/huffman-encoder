@@ -20,8 +20,9 @@ class HuffmanEncoder{
     vector<BinaryTree> BTlist;
     char* CharacterList;
     map<char, string> BinaryCodes;
-    string Text;
-    string BitStream;
+    string Text;//text extracted from file
+    string BitStream;//stream of bits
+    string DecodedText;
 
     void CreateLists(string str);
     void MergeBinaryTrees();
@@ -34,6 +35,7 @@ class HuffmanEncoder{
     public:
     HuffmanEncoder();
     void encode(string filename);
+    void decode();
     //decode
     
 

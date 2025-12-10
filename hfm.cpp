@@ -5,6 +5,7 @@ HuffmanEncoder::HuffmanEncoder(){
     BTlist = {};
     Text = "";
     BitStream = "";
+    DecodedText = "";
 }
 
 void HuffmanEncoder::readFile(const string &filename){
@@ -131,21 +132,21 @@ void HuffmanEncoder::WriteBytesToFile(){
     fstream fileObj;
     fileObj.open("bf.bin", ios::binary | ios::out);
     if(fileObj.is_open()){
-        char* c = new char[8];
-        int j = 0;
+        string s;
         for(int i = 0; i < BitStream.length(); i++){
-            if(i % 8 == 0 && i != 0){
-                
-                // u_int8_t i = reinterpret_cast<u_int8_t>(c);
-                for(int k = 0; k < 8; k++){
-                    fileObj.write((c+k), 1);
+            
+            s+=BitStream[i];
+            if((i+1)%8 == 0 && i!= 0){
+                if(s.size() < 8){
+                    while(s.size()!=8){
+                        s+="0";
+                    }
                 }
-                delete[] c;//deletes array block
-                char* c = new char[8];
-                j = -1;
+                
+                u_int8_t B= stoi(s);
+                fileObj.write(reinterpret_cast<char*>(&B), 1);
+                s = "";
             }
-            j++;
-            c[j] = BitStream[i];
         }
     }
 }
@@ -160,5 +161,12 @@ void HuffmanEncoder::encode(string filename){//main function wrapper over other 
     WriteBytesToFile();
 
 }
+//################################DECODE###############################
 
-//1. use vectors
+
+
+void HuffmanEncoder::decode(){
+
+}
+
+
