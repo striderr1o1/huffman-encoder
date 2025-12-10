@@ -151,6 +151,14 @@ void HuffmanEncoder::WriteBytesToFile(){
     }
 }
 
+long long HuffmanEncoder::getFileSize(const string &filename){
+    ifstream file(filename, ios::binary | ios::ate);//ios::binary opens file in binary and ios::ate take the pointer to end of the file for accureate and complete size of file in bytes;
+    if(!file.is_open()){
+        throw runtime_error("file not found  " + filename);
+    }
+    return file.tellg();// returns the position of the pointer in bytes ios :: ate took the pointer to the end of the file and  tellg tell the position in bytes
+}
+
 void HuffmanEncoder::encode(string filename){//main function wrapper over other function which user can access
     readFile(filename);
     CreateLists(Text);
@@ -166,7 +174,9 @@ void HuffmanEncoder::encode(string filename){//main function wrapper over other 
 
 
 void HuffmanEncoder::decode(){
-
+    DecodedText = BTlist[0].GetStringDecoded(BitStream);
+    cout << DecodedText << endl;
 }
 
+//1101101110
 

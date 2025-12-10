@@ -23,6 +23,7 @@ a struct for representing node in a binary tree. It contains int frequency, char
 A binary tree implementation. Contains these private data members and functions:
 - *TreeNode* root*
 - **map<char, string> Traversal(TreeNode* &root, map<char, string> mp string s)**: this function is called inside of GetCodeByTraversal function. It basically calculates the 0s and 1s taken in reaching a character. It then stores 0s and 1s in the form of a bit string against the character using a map. It does this for all the characters, basically traversing using recursion till each leafnode is reached and character's bit string calculated. Then it returns the final map.
+- **string decodeII(string s, TreeNode* &node, string &bitstream, int &counter)**: decodes the bit stream using recursion
 
 Contains these public functions:
 - **BinaryTree()**: The constructor for binary tree
@@ -30,6 +31,7 @@ Contains these public functions:
 - **int returnFrequency()**: returns frequency stored in the root node
 - **TreeNode GetRoot()**: returns the pointer to the root node of the tree
 - **map<char, string>** GetCodeByTraversal(): a wrapper over the traversal function. Returns the map that is returned from traversal function.
+- **string GetStringDecoded(string &bitstream)**: calls the decodeII function.
 
 ## hfm.h and hfm.cpp
 
@@ -56,3 +58,5 @@ This class contains the following private data members and functions:
 *Public functions* are the following:
 
 - **void encode(string filename)**: basically a wrapper over the private functions. Takes the filename and implements above mentioned functionality over the file's text.
+
+- **void decode()**: calls the GetStringDecoded function of the tree inside "BTlist".

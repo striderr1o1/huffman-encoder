@@ -23,7 +23,7 @@ class HuffmanEncoder{
     string Text;//text extracted from file
     string BitStream;//stream of bits
     string DecodedText;
-
+    //encoding functions
     void CreateLists(string str);
     void MergeBinaryTrees();
     BinaryTree GetMinimumTree();
@@ -31,11 +31,13 @@ class HuffmanEncoder{
     void readFile(const string &filename);
     void WriteAsBitStream();
     void WriteBytesToFile();
-
+    //decoding functions
+    
     public:
     HuffmanEncoder();
     void encode(string filename);
     void decode();
+    long long getFileSize(const string &filename);
     //decode
     
 
