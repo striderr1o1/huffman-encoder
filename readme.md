@@ -55,4 +55,4 @@ This class contains the following private data members and functions:
 
 *Public functions* are the following:
 
-void encode(string filename): basically a wrapper over the private functions. Takes the filename and implements above mentioned functionality over the file's text.
+- void encode(string filename): basically a wrapper over the private functions. Takes the filename and implements above mentioned functionality over the file's text.
