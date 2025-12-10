@@ -121,12 +121,13 @@ void HuffmanEncoder::MergeBinaryTrees(){
 void HuffmanEncoder::WriteAsBitStream(){
     for(int i = 0; i < Text.length(); i++){
         BitStream+=BinaryCodes[Text[i]];
-        // cout << Text[i];
+        //  cout << Text[i];
     }
     // cout << BitStream << endl;
 }
 
 void HuffmanEncoder::WriteBytesToFile(){
+    std::remove("bf.bin");
     fstream fileObj;
     fileObj.open("bf.bin", ios::binary | ios::out);
     if(fileObj.is_open()){
@@ -136,8 +137,10 @@ void HuffmanEncoder::WriteBytesToFile(){
             if(i % 8 == 0 && i != 0){
                 
                 // u_int8_t i = reinterpret_cast<u_int8_t>(c);
-                fileObj.write(c, 1);
-                delete c;
+                for(int k = 0; k < 8; k++){
+                    fileObj.write((c+k), 1);
+                }
+                delete[] c;//deletes array block
                 char* c = new char[8];
                 j = -1;
             }
