@@ -16,8 +16,7 @@ This project contains two headers files and two source files:
 
 The binary_tree.h header file contains the following:
 
-- *TreeNode Structure*: a struct for representing node in a binary tree. It contains int frequency, char character, and TreeNode* left and TreeNode* right pointers.
+- *TreeNode Structure*:
+a struct for representing node in a binary tree. It contains int frequency, char character, and TreeNode* left and TreeNode* right pointers.
 
 - *BinaryTree Class*:
-
-This 
