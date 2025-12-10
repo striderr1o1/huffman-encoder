@@ -25,7 +25,7 @@ class BinaryTree{
     TreeNode* root;
     
     map<char, string> Traversal(TreeNode* &root, map<char, string> mp, string s);
-    string decodeII(string s, TreeNode* &node, string &bitstream, int &counter);
+    string decodeII(string s, TreeNode* node, string &bitstream, int &counter);
     public:
 
     BinaryTree();

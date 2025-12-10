@@ -58,27 +58,27 @@ map<char, string> BinaryTree::GetCodeByTraversal(){
     return mpReturned;
 }
 
-string BinaryTree::decodeII(string s, TreeNode* &node, string &bitstream, int &counter){
-    cout << bitstream << endl;
-    while(counter != bitstream.length()){
-        if(node == nullptr){
-            break;
+string BinaryTree::decodeII(string s, TreeNode* node, string &bitstream, int &counter){
+    
+    
+        for(int i = 0; i < bitstream.length(); i++){
+            if(node == nullptr){
+                cout << "Null ptr reached" << endl;
+                node = root;
+            }
+            if(node != nullptr && node->character != '-'){
+                s+= node->character;
+                node = root;
+            }
+            if(bitstream[i] == '0'){
+                node = node->left;
+            }
+            else{
+                node = node->right;
+            }
+
         }
-        if(node->character != '-'){
-            s+=node->character;
-            counter++;
-            node = root;
-        }   
-        if(bitstream[counter] == '0'){
-            node = node->left;
-            
-        }
-        if(bitstream[counter] == '1'){
-            node = node->right;
-        }
-        counter++;
-        
-    }
+    
      
     return s;
     
