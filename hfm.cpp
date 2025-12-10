@@ -122,7 +122,7 @@ void HuffmanEncoder::MergeBinaryTrees(){
 void HuffmanEncoder::WriteAsBitStream(){
     for(int i = 0; i < Text.length(); i++){
         BitStream+=BinaryCodes[Text[i]];
-        //  cout << Text[i];
+         cout << Text[i] << " " << BinaryCodes[Text[i]] << endl;
     }
     // cout << BitStream << endl;
 }
