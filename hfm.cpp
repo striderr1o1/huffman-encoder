@@ -164,6 +164,7 @@ string HuffmanEncoder::encode(string filename){//main function wrapper over othe
     CreateLists(Text);
     MergeBinaryTrees();
     map<char, string> mp;
+    
     BinaryCodes = BTlist[0].GetCodeByTraversal();
     WriteAsBitStream();
     WriteBytesToFile();
